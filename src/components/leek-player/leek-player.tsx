@@ -43,6 +43,7 @@ export class LeekPlayer {
   render() {
     return (
       <Host>
+        <iframe src="https://olafwempe.com/mp3/silence/silence.mp3" allow='autoplay' id='audio'></iframe>
         <audio ref={elt => this.audio = elt} autoPlay loop >
           <source src="./assets/audio/loituma.mp3" type="audio/mp3" />
         </audio>
