@@ -8,6 +8,7 @@ import { LeekButtonType } from "../leek-button/button.type";
 })
 export class LeekPlayer {
 
+  private iframe!: HTMLIFrameElement;
   private audio!: HTMLAudioElement;
 
   @State() isPlaying = true;
@@ -16,6 +17,7 @@ export class LeekPlayer {
   @Event() toggleState: EventEmitter<boolean>;
 
   componentDidLoad(): void {
+    this.iframe.remove();
     this.startStop(true);
   }
 
@@ -43,6 +45,7 @@ export class LeekPlayer {
   render() {
     return (
       <Host>
+        <iframe ref={elt => this.iframe = elt} src="./assets/audio/loituma.mp3" allow='autoplay' id='audio'></iframe>
         <audio ref={elt => this.audio = elt} autoPlay loop >
           <source src="./assets/audio/loituma.mp3" type="audio/mp3" />
         </audio>
