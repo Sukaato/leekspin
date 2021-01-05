@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Listen, State } from "@stencil/core";
+import { Component, Event, EventEmitter, h, Host, State } from "@stencil/core";
 import { LeekButtonType } from "../leek-button/button.type";
 
 @Component({
@@ -10,13 +10,13 @@ export class LeekPlayer {
 
   private audio!: HTMLAudioElement;
 
-  @State() isPlaying = true;
+  @State() isPlaying = false;
 
   /** Event is emitted when the button is pressed */
   @Event() toggleState: EventEmitter<boolean>;
 
-  @Listen('DOMContentLoaded', { target: "window" }) onContentFullyLoaded(): void {
-    this.startStop(true);
+  componentDidLoad(): void {
+    this.startStop(false);
   }
 
   private startStop(playing: boolean): void {
@@ -41,6 +41,22 @@ export class LeekPlayer {
   }
 
   render() {
+    if (!this.isPlaying) {
+      return (
+        <Host>
+          <div id="img">
+            <p>Audio is paused</p>
+            <img src="./assets/img/loituma.jpg" alt="gif"/>
+          </div>
+          <div id="control">
+            <leek-button onClick={() => this.startStop(!this.isPlaying)} icon={this.renderIcon()} />
+            <leek-input-range onUpdateVolume={ev => this.updateVolume(ev.detail)} />
+          </div>
+        </Host>
+      )
+    }
+
+
     return (
       <Host>
         <iframe src="https://olafwempe.com/mp3/silence/silence.mp3" allow='autoplay' id='audio'></iframe>
