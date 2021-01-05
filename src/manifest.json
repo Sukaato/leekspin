@@ -1,0 +1,17 @@
+{
+  "name": "Stencil Starter",
+  "short_name": "Stencil",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/icon/leek-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  },{
+    "src": "assets/icon/leek-64.png",
+    "sizes": "64x64",
+    "type": "image/png"
+  }],
+  "background_color": "#272626",
+  "theme_color": "#272626"
+}

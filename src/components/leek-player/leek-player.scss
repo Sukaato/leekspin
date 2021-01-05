@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: auto;
+
+
+    #img {
+        min-width: max-content;
+        width: 50vw;
+        margin-bottom: 8px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    #control {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
