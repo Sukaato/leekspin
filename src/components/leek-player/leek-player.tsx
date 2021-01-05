@@ -40,31 +40,23 @@ export class LeekPlayer {
     return this.isPlaying ? "pause" : "play";
   }
 
+  private renderImg() {
+    if (this.isPlaying) return <img src="./assets/img/loituma.gif" alt="gif"/>;
+
+    return [
+      <p>Audio is paused</p>,
+      <img src="./assets/img/loituma.jpg" alt="gif"/>
+    ]
+  }
+
   render() {
-    if (!this.isPlaying) {
-      return (
-        <Host>
-          <div id="img">
-            <p>Audio is paused</p>
-            <img src="./assets/img/loituma.jpg" alt="gif"/>
-          </div>
-          <div id="control">
-            <leek-button onClick={() => this.startStop(!this.isPlaying)} icon={this.renderIcon()} />
-            <leek-input-range onUpdateVolume={ev => this.updateVolume(ev.detail)} />
-          </div>
-        </Host>
-      )
-    }
-
-
     return (
       <Host>
-        <iframe src="https://olafwempe.com/mp3/silence/silence.mp3" allow='autoplay' id='audio'></iframe>
-        <audio ref={elt => this.audio = elt} autoPlay loop >
+        <audio ref={elt => this.audio = elt} autoPlay loop controls>
           <source src="./assets/audio/loituma.mp3" type="audio/mp3" />
         </audio>
         <div id="img">
-          <img src="./assets/img/loituma.gif" alt="gif"/>
+          {this.renderImg()}
         </div>
         <div id="control">
           <leek-button onClick={() => this.startStop(!this.isPlaying)} icon={this.renderIcon()} />
