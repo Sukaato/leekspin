@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import { Component, Event, EventEmitter, h, Host } from "@stencil/core";
 
 @Component({
     tag: 'leek-input-range',
@@ -6,11 +6,6 @@ import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
     shadow: true
 })
 export class LeekInputRange {
-
-  @Prop() disabled = false;
-  @Prop() min = 0;
-  @Prop() max = 100;
-  @Prop() step = 1;
 
   @Event() updateVolume: EventEmitter<number>;
 
@@ -26,10 +21,9 @@ export class LeekInputRange {
         <div>
           <input
               type='range' 
-              min={this.min}
-              max={this.max}
-              step={this.step}
-              disabled={this.disabled}
+              min="0"
+              max="100"
+              step="1"
               onInput={ev => this.update(ev)} />
         </div>
         <img src="./assets/icon/volume_up.svg" alt="up"/>

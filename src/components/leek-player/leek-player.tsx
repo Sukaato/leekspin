@@ -17,19 +17,14 @@ export class LeekPlayer {
 
   componentDidLoad(): void {
     this.startStop(false);
+    this.updateVolume(50);
   }
 
   private startStop(playing: boolean): void {
     this.isPlaying = playing;
 
+    this.isPlaying ? this.audio.play() : this.audio.pause();
     this.toggleState.emit(this.isPlaying);
-
-    if (playing) {
-      this.audio.play();
-      this.updateVolume(50);
-    } else {
-      this.audio.pause();
-    }
   }
 
   private updateVolume(value: number): void {
@@ -46,7 +41,7 @@ export class LeekPlayer {
     return [
       <p>Audio is paused</p>,
       <img src="./assets/img/loituma.jpg" alt="gif"/>
-    ]
+    ];
   }
 
   render() {

@@ -16,10 +16,6 @@ export namespace Components {
         "icon": LeekButtonType;
     }
     interface LeekInputRange {
-        "disabled": boolean;
-        "max": number;
-        "min": number;
-        "step": number;
     }
     interface LeekPlayer {
     }
@@ -79,11 +75,7 @@ declare namespace LocalJSX {
         "icon"?: LeekButtonType;
     }
     interface LeekInputRange {
-        "disabled"?: boolean;
-        "max"?: number;
-        "min"?: number;
         "onUpdateVolume"?: (event: CustomEvent<number>) => void;
-        "step"?: number;
     }
     interface LeekPlayer {
         /**

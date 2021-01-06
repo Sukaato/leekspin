@@ -43,8 +43,7 @@ export class LeekTimer {
   private format(value: number): string {
     const stringValue = value.toString();
 
-    if (stringValue.length < 2) return `0${stringValue}`;
-    return stringValue;
+    return stringValue.length < 2 ? `0${stringValue}` : stringValue;
   }
 
   render() {

@@ -10,10 +10,9 @@ export class LeekButton {
 
     /** type of icon displpayed */
     @Prop() icon: LeekButtonType = 'pause';
-    
+
     private renderSvg() {
-        if (this.icon === 'pause') return './assets/icon/stop.svg';
-        return './assets/icon/play_circle_outline.svg';
+        return this.icon === 'pause' ? './assets/icon/stop.svg' : './assets/icon/play_circle_outline.svg';
     }
 
     render() {
