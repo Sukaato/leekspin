@@ -13,6 +13,7 @@ export class LeekApp {
     return (
       <Host>
         <header>
+          <img src="/assets/icon/leek-64.png" alt=""/>
           <h1>Leekspin</h1>
         </header>
 
@@ -22,7 +23,7 @@ export class LeekApp {
         </main>
 
         <footer>
-          <p>Developed with ♥ by <a href="https://www.github.com/Sukaato">Sukaato</a></p>
+          <p>Developed with <span id="heart">♥</span> by <a href="https://www.github.com/Sukaato">Sukaato</a></p>
         </footer>
       </Host>
     );

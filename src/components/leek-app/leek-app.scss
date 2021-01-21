@@ -12,12 +12,23 @@
     align-items: center;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.259);
     flex-shrink: 0;
-  }
+    padding: 0 16px;
 
-  h1 {
-    font-size: 1.4rem;
-    font-weight: 500;
-    padding: 0 12px;
+    img {
+      height: 32px;
+      transition: transform .5s ease-out;
+
+      &:hover {
+        transform: rotateZ(395deg);
+        transition: transform .3s ease-out;
+      }
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      padding: 0 12px;
+    }
   }
 
   main {
@@ -29,6 +40,11 @@
     color: #d4d2cf;
     padding: 0 16px;
     text-align: right;
+
+    #heart:hover {
+      color: red;
+      transition: color .3s ease-out;
+    }
 
     a {
       color: #d4d2cf;
