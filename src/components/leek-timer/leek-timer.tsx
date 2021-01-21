@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from '@stencil/core';
+import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'leek-timer',
@@ -16,13 +16,25 @@ export class LeekTimer {
   @State() minutes = 0;
   @State() seconds = 0;
 
+  @Watch('playing') onPlayingChange(newValue: boolean) {
+    newValue ? this.createTimer() : this.deleteTimer();
+  }
+
   componentDidLoad(): void {
-    this.interval = setInterval(() => {
-      if (this.playing) this.compteur();
-    }, 1000);
+    this.createTimer();
   }
 
   disconnectedCallback(): void {
+    this.deleteTimer();
+  }
+
+  private createTimer(): void {
+    this.interval = setInterval(() => {
+      this.playing && this.compteur();
+    }, 1000);
+  }
+
+  private deleteTimer(): void {
     clearInterval(this.interval);
   }
 
