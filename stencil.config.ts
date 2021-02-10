@@ -9,6 +9,9 @@ export const config: Config = {
   taskQueue: 'async',
   outputTargets: [
     {
+      type: 'docs-readme'
+    },
+    {
       type: 'www',
       // comment the following line to disable service workers in production
       serviceWorker: null,
